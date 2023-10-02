@@ -14,6 +14,7 @@ app.register_blueprint(product)
 
 
 app.config["SQLALCHEMY_DATABASE_URI"] = config.SQLALCHEMY_DATABASE_URI
+app.config['SECRET_KEY'] = config.SECRET_KEY
 extentions.db.init_app(app)
 
 
