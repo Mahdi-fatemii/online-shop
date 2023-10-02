@@ -5,21 +5,23 @@
 {% block body %}
 
     <table>
-    <tr>
-        <th>name</th>
-        <th>description</th>
-        <th>price</th>
-        <th>inventory status</th>
-    </tr>
+        <tr>
+            <th>name</th>
+            <th>description</th>
+            <th>price</th>
+            <th>inventory status</th>
+            <th>edit product</th>
+        </tr>
 
-    {% for p in products %}
-    <tr>
-    <td>{{ p.name }}</td>
-    <td>{{ p.description }}</td>
-    <td>{{ p.price }}</td>
-    <td>{{ "available" if p.status == 1 else "unavailable" }}</td>
-    </tr>
-    {% endfor %}
+        {% for p in products %}
+            <tr>
+                <td>{{ p.name }}</td>
+                <td>{{ p.description }}</td>
+                <td>{{ p.price }}</td>
+                <td>{{ "available" if p.status == 1 else "unavailable" }}</td>
+                <td><a href="/admin/dashboard/edit-product/{{ p.id }}">edit product</a></td>
+            </tr>
+        {% endfor %}
 
     </table>
 
