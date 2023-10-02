@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>MFK online shop</title>
+{% endblock %}
+{% block body %}
+
+    {% for p in products %}
+        {{ p.name }}
+    {% endfor %}
+
+{% endblock %}
