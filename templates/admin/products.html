@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>admin products</title>
+{% endblock %}
+{% block body %}
+
+    <table>
+    <tr>
+        <th>name</th>
+        <th>description</th>
+        <th>price</th>
+        <th>inventory status</th>
+    </tr>
+
+    {% for p in products %}
+    <tr>
+    <td>{{ p.name }}</td>
+    <td>{{ p.description }}</td>
+    <td>{{ p.price }}</td>
+    <td>{{ "available" if p.status == 1 else "unavailable" }}</td>
+    </tr>
+    {% endfor %}
+
+    </table>
+
+
+
+    <form action="#" method="post">
+        <input type="text" name="name" placeholder="product name"><br>
+        <textarea name="description" placeholder="product description"></textarea><br>
+        <input type="number" name="price" placeholder="product price"><br>
+        <label>inventory status:</label><input type="checkbox" name="status"><br>
+        <input type="submit">
+    </form>
+
+
+{% endblock %}
