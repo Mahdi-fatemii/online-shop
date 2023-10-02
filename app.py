@@ -3,6 +3,7 @@ from blueprints.general import app as general
 from blueprints.admin import app as admin
 from blueprints.user import app as user
 from blueprints.product import app as product
+from flask_wtf.csrf import CSRFProtect
 import config
 import extentions
 
@@ -17,6 +18,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = config.SQLALCHEMY_DATABASE_URI
 app.config['SECRET_KEY'] = config.SECRET_KEY
 extentions.db.init_app(app)
 
+csrf = CSRFProtect(app)
 
 with app.app_context():
     extentions.db.create_all()

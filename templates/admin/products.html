@@ -28,6 +28,7 @@
 
 
     <form action="#" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <input type="text" name="name" placeholder="product name"><br>
         <textarea name="description" placeholder="product description"></textarea><br>
         <input type="number" name="price" placeholder="product price"><br>
