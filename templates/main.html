@@ -5,6 +5,7 @@
 {% block body %}
 
     {% for p in products %}
+        <a href="{{ url_for('general.product', id=p.id, name=p.name) }}">{{ p.name }}</a>
         {{ p.name }}
     {% endfor %}
 
