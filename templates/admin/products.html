@@ -6,6 +6,7 @@
 
     <table>
         <tr>
+            <th>image</th>
             <th>name</th>
             <th>description</th>
             <th>price</th>
@@ -15,6 +16,7 @@
 
         {% for p in products %}
             <tr>
+            <td><img style="width: 20px" src="/static/cover/{{ p.id }}.jpg"></td>
                 <td>{{ p.name }}</td>
                 <td>{{ p.description }}</td>
                 <td>{{ p.price }}</td>
@@ -27,8 +29,9 @@
 
 
 
-    <form action="#" method="post">
+    <form action="#" method="post" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <label>cover:</label><input type="file" name="cover"><br>
         <input type="text" name="name" placeholder="product name"><br>
         <textarea name="description" placeholder="product description"></textarea><br>
         <input type="number" name="price" placeholder="product price"><br>
