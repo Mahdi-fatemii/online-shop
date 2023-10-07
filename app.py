@@ -1,24 +1,43 @@
 from flask import Flask
+# connecting blueprints
 from blueprints.general import app as general
 from blueprints.admin import app as admin
 from blueprints.user import app as user
 from blueprints.product import app as product
+# adding CSRFProtect
 from flask_wtf.csrf import CSRFProtect
+# adding configs
 import config
+# adding database
 import extentions
-
+from flask_login import LoginManager
+from models.user import User
+# registering blueprints
 app = Flask(__name__)
 app.register_blueprint(general)
 app.register_blueprint(admin)
 app.register_blueprint(user)
 app.register_blueprint(product)
-
-
+# database configs
 app.config["SQLALCHEMY_DATABASE_URI"] = config.SQLALCHEMY_DATABASE_URI
 app.config['SECRET_KEY'] = config.SECRET_KEY
 extentions.db.init_app(app)
-
+# CSRFProtect
 csrf = CSRFProtect(app)
+# user login manager
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+# user login manager
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.filter(User.id == user_id)
+# or return User.get(user_id)
+
+# database creation
+
 
 with app.app_context():
     extentions.db.create_all()

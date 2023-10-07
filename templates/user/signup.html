@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>User Sign-Up</title>
+{% endblock %}
+{% block body %}
+
+    <h1>User Sign-Up</h1>
+    <form action="#" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="text" name="username" placeholder="username"><br>
+        <input type="text" name="name" placeholder="first name"><br>
+        <input type="text" name="lastName" placeholder="last name"><br>
+        <input type="text" name="phone" placeholder="mobile number"><br>
+        <input type="text" name="email" placeholder="email"><br>
+        <input type="text" name="address" placeholder="address"><br>
+        <input type="password" name="password" placeholder="password"><br>
+        <input type="submit">
+        <a href="/user/login">Sign-Up</a>
+    </form>
+
+{% endblock %}
