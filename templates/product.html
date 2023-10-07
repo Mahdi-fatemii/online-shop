@@ -3,9 +3,10 @@
     <title> product: {{ product.name }}</title>
 {% endblock %}
 {% block body %}
-    <img style="width: 300px" src="/static/cover/{{ product.id }}.jpg">
+    <img style="width: 300px" src="/static/cover/{{ product.id }}.jpg"><br>
     {{ product.id }}<br>
     {{ product.name }}<br>
+    {{ product.description }}<br>
     {{ product.price }}
 
 {% endblock %}
