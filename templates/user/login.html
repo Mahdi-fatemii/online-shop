@@ -13,4 +13,8 @@
         <a href="/user/login/signup">Sign-Up</a>
     </form>
 
+    {% for m in get_flashed_messages() %}
+        {{ m }}
+    {% endfor %}
+
 {% endblock %}

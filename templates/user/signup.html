@@ -15,7 +15,11 @@
         <input type="text" name="address" placeholder="address"><br>
         <input type="password" name="password" placeholder="password"><br>
         <input type="submit">
-        <a href="/user/login">Sign-Up</a>
+        <a href="/user/login">login</a>
     </form>
+    {% for n in get_flashed_messages() %}
+        {{ n }}
+    {% endfor %}
+
 
 {% endblock %}

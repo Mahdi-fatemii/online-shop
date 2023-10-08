@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, abort, url_for,request, redirect, session
+from flask import Blueprint, render_template, abort, url_for, request, redirect, session
 import config
 from models.product import Product
 from extentions import db
@@ -12,9 +12,8 @@ def before_request():
         abort(403)
 
 
-
 @app.route('/admin/login', methods=["POST", "GET"])
-def login():  # put application's code here
+def login():
     if request.method == "POST":
         username = request.form.get('username', None)
         password = request.form.get('password', None)
@@ -75,14 +74,14 @@ def edit_product(id):
         product.name = name
         product.description = description
         product.price = price
-        if status == None:
+        if status is None:
             product.status = 0
         else:
             product.status = 1
 
         db.session.commit()
 
-        if file != None :
+        if file is not None:
             file.save(f'static/cover/{product.id}.jpg')
 
         return redirect(url_for("admin.edit_product", id=id))
