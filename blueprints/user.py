@@ -29,14 +29,14 @@ def user_signup():
         user = User.query.filter(User.username == username).first()
         if user is not None:
             flash('sorry this username is already taken by another person')
-            return redirect('/user/login/signup')
+            return redirect(url_for('user.user_signup'))
 
         user = User(username=username, password=sha256_crypt.encrypt(password), name=name,
                     lastName=lastName, phone=phone, email=email,address=address)
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return redirect("/user/login")
+        return redirect(url_for('user.user_login'))
 
 
 @app.route('/user/login', methods=['GET', 'POST'])
@@ -47,7 +47,7 @@ def user_login():
         user = User.query.filter(User.username == username).first()
         if user is not None and sha256_crypt.verify(password, user.password) is True:
             login_user(user)
-            return redirect("/user/dashboard")
+            return redirect(url_for('user.dashboard'))
         else:
             flash('invalid username or password')
             return redirect(url_for("user.user_login"))
