@@ -1,6 +1,7 @@
 from sqlalchemy import *
 from extentions import db
 from flask_login import UserMixin
+from flask_login import login_manager
 
 
 class User(db.Model, UserMixin):
@@ -14,4 +15,4 @@ class User(db.Model, UserMixin):
     email = Column(String, unique=True, nullable=False, index=True)
     address = Column(String, nullable=True, index=True)
 
-    # carts = db.relationship('Cart', back_populates='user')
+
