@@ -7,4 +7,5 @@
     {% for cart_item in (current_user.carts|selectattr('status','equalto','pending')|list|first).cart_items %}
         {{ cart_item.product.name }} ----- {{ cart_item.quantity }} <br>
     {% endfor %}
+
 {% endblock %}

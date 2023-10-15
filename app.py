@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for, flash
 # connecting blueprints
 from blueprints.general import app as general
 from blueprints.admin import app as admin
@@ -34,7 +34,12 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.filter(User.id == user_id).first()
-# or User.query.filter(User.id == user_id)
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    flash('please login to your account first')
+    return redirect(url_for('user.user_login'))
 
 # database creation
 
