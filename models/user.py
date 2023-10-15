@@ -1,5 +1,5 @@
 from sqlalchemy import *
-from extentions import db
+from extentions import db, get_current_time
 from flask_login import UserMixin
 from flask_login import login_manager
 
@@ -14,5 +14,5 @@ class User(db.Model, UserMixin):
     phone = Column(String, unique=True, nullable=False, index=True)
     email = Column(String, unique=True, nullable=False, index=True)
     address = Column(String, nullable=True, index=True)
-
+    date_created = Column(String(15), default=get_current_time)
 
