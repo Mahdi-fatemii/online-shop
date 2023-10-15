@@ -13,3 +13,5 @@ class User(db.Model, UserMixin):
     phone = Column(String, unique=True, nullable=False, index=True)
     email = Column(String, unique=True, nullable=False, index=True)
     address = Column(String, nullable=True, index=True)
+
+    # carts = db.relationship('Cart', back_populates='user')
