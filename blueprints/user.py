@@ -100,7 +100,8 @@ def remove_from_cart():
 @app.route('/cart', methods=["GET", "POST"])
 @login_required
 def cart():
-    return render_template("/user/cart.html")
+    cart = current_user.carts.filter(Cart.status == "pending").first()
+    return render_template("/user/cart.html", cart=cart)
 
 
 @app.route('/user/dashboard', methods=["GET", "POST"])
