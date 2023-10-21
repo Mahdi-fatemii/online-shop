@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>admin dashboard | order</title>
+{% endblock %}
+{% block body %}
+    <form action="#" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <select name="status">
+            <option value="pending" {% if cart.status == "pending" %} selected {% endif %} >pending</option>
+            <option value="purchased" {% if cart.status == "purchased" %} selected {% endif %} >purchased</option>
+            <option value="sent" {% if cart.status == "sent" %} selected {% endif %} >sent</option>
+            <option value="rejected" {% if cart.status == "rejected" %} selected {% endif %} >rejected</option>
+        </select>
+        <input type="submit" value="change status">
+    </form>
+    {{ cart.status }}
+    <div>
+        {% for item in cart.cart_items %}
+            {{ item.product.name }} - {{ item.price }}<br>
+        {% endfor %}
+    </div>
+
+{% endblock %}

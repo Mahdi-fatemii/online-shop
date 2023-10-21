@@ -17,3 +17,16 @@ class Cart(db.Model):
             t = item.price * item.quantity
             total += t
         return total
+
+    def get_status_english(self):
+        if self.status == 'pending':
+            return "waiting for purchase"
+
+        if self.status == 'purchased':
+            return "purchased"
+
+        if self.status == 'sent':
+            return "sent"
+
+        if self.status == 'rejected':
+            return "rejected"
