@@ -3,7 +3,9 @@
     <title>user dashboard</title>
 {% endblock %}
 {% block body %}
-<a href="/user/dashboard/products">products page</a>
 
+    {% for cart in current_user.carts|selectattr('status','!=','pending') %}
+    <a href="{{ url_for('user.order', id=cart.id) }}">{{ cart.status }} - {{ cart.id }}</a><br>
+    {% endfor %}
 
 {% endblock %}

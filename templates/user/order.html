@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block header %}
+    <title>Your Order</title>
+{% endblock %}
+{% block body %}
+
+
+    {{ cart.status }}<br>
+    {% for item in cart.cart_items %}
+        {{ item.product.name }} - {{ item.price }}<br>
+    {% endfor %}
+
+{% endblock %}
