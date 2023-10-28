@@ -4,9 +4,29 @@
 {% endblock %}
 {% block body %}
 
-    {% for p in products %}
-        <a href="{{ url_for('general.product', id=p.id, name=p.name) }}">{{ p.name }}</a>
-{#        {{ p.name }}#}
-    {% endfor %}
+    <header>
+        <img style="width: 350px" src="{{ url_for('static',filename = 'image/logopurpletxt2.png') }}"
+             alt="MFK online-shop">
+        <section>
+            <a href="#">Main page</a>
+            <a href="#">New products</a>
+            <a href="#">Best selling products</a>
+            <a href="#">Special offers</a>
+            <a href="#">About us</a>
+        </section>
+    </header>
 
+
+
+    <section class="products">
+        {% for p in products %}
+            <section class="product-box">
+                <img src="{{ url_for('static',filename='cover/'+p.id|string+'.jpg') }}">
+                <h3>{{ p.name|truncate(25) }}</h3>
+                <p>{{ p.description|truncate(50) }}</p>
+                <a href="{{ url_for('general.product', id=p.id, name=p.name) }}">purchase</a>
+
+            </section>
+        {% endfor %}
+    </section>
 {% endblock %}

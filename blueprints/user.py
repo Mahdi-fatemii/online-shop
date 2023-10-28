@@ -60,6 +60,7 @@ def user_login():
 @app.route('/add-to-cart', methods=["GET"])
 @login_required
 def add_to_cart():
+    quantity = request.args.get('quantity')
     id = request.args.get('id')
     product = Product.query.filter(Product.id == id).first_or_404()
 
@@ -71,13 +72,13 @@ def add_to_cart():
 
     cart_item = cart.cart_items.filter(CartItem.product == product).first()
     if cart_item is None:
-        item = CartItem(quantity=1)
+        item = CartItem(quantity=quantity)
         item.price = product.price
         item.cart = cart
         item.product = product
         db.session.add(item)
     else:
-        cart_item.quantity += 1
+        cart_item.quantity += quantity
 
     db.session.commit()
 

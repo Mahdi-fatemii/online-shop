@@ -4,13 +4,14 @@
 {% endblock %}
 {% block body %}
     <img style="width: 300px" src="/static/cover/{{ product.id }}.jpg"><br>
-    {{ product.id }}<br>
-    {{ product.name }}<br>
-    {{ product.description }}<br>
-    {{ product.price }}<br>
+    Product ID: {{ product.id }}<br>
+    Product: {{ product.name }}<br>
+    Description: {{ product.description }}<br>
+    Price: {{ product.price }} $ <br>
     <form method="get" action="/add-to-cart">
         <input type="hidden" name="id" value="{{ product.id }}">
         <input type="submit" value="add to cart">
+        <input type="number" name="quantity" value="1">
     </form>
 
 {% endblock %}
