@@ -7,6 +7,10 @@
     text-rendering: optimizeLegibility;
 }
 
+* {
+    transition: all 200ms ease-in-out;
+}
+
 
 body {
     padding: 0;
@@ -25,6 +29,7 @@ header {
 header > img {
     max-width: 300px;
     margin-top: 30px;
+    margin-bottom: 30px;
 
 
 }
@@ -36,7 +41,8 @@ header > section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px 510px;
+    /*margin: 30px 510px;*/
+    margin: auto;
     border-radius: 73px;
     background: #86babd;
     /*box-shadow: 10px 10px 20px #ab84f1,*/
@@ -65,19 +71,26 @@ header > section > a:hover {
 }
 
 .products {
+    max-width: 900px;
     display: flex;
+    margin: auto;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
+    align-items: stretch;
     margin-top: 30px;
 }
 
 .product-box {
+    display: flow;
     max-width: 250px;
     margin: 15px;
-    
+    padding-bottom: 50px;
+    align-items: stretch;
     border: 1px solid mediumseagreen;
     border-radius: 10px;
     background: #c4a9fc;
+    position: relative;
     
     /*border-radius: 20px;*/
     /*background: rgba(182, 167, 248, 0.97);*/
@@ -95,15 +108,18 @@ header > section > a:hover {
 .product-box > a {
     display: flex;
     justify-content: center;
-    width: 80px;
-    color: #212121;
-    margin: 5px 160px 10px;
+    width: 100px;
+    color: #111111;
+    margin: 5px 5px 5px;
     align-items: center;
     font-size: 18px;
     border-radius: 20px;
     height: 30px;
-    background: linear-gradient(145deg, rgba(156, 141, 241, 0.97), rgba(156, 141, 241, 0.97));
+    background: linear-gradient(145deg, rgba(37, 136, 24, 0.97), rgba(114, 93, 245, 0.97));
     text-decoration: None;
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
 }
 
 .product-box > a:hover {
@@ -117,9 +133,27 @@ header > section > a:hover {
 .product-box > h3 {
     margin: 5px;
     font-weight: 400;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .product-box > p {
     font-size: 12px;
-    margin: 0px;
+    margin: 0  5px;
+}
+
+a > img {
+    width: 30px;
+}
+
+.tag {
+    margin: 10px 10px;
+    width: 70px;
+    font-size: 10px;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.tag img {
+    width: 40px;
 }
