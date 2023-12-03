@@ -1,0 +1,11 @@
+<section class="product-box">
+    <img src="{{ url_for('static',filename='cover/'+p.id|string+'.jpg') }}">
+    <span class="tag"><img src="{{ url_for('static', filename="image/icons/delivery.png") }}"> free delivery</span>
+    <span class="tag"><img src="{{ url_for('static', filename="image/icons/check.png") }}"> Guarantee</span>
+
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.description|truncate(50) }}</p>
+    <a href="{{ url_for('general.product', id=p.id, name=p.name) }}">More... <img
+            src="{{ url_for('static', filename="image/icons/cart.png") }}"></a>
+
+</section>

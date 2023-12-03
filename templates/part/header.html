@@ -1,0 +1,16 @@
+<header>
+    <img style="width: 350px" src="{{ url_for('static',filename = 'image/logopurpletxt2.png') }}"
+         alt="MFK online-shop">
+    <section>
+
+        <a href="#">Main page</a>
+        <a href="#">Special offers</a>
+        <a href="#">New products</a>
+        <a href="#">About us</a>
+
+        <form action="/" method="get">
+                <input type="search" name="search" value="{{ search if search != None }}" placeholder="Search...">
+        </form>
+
+    </section>
+</header>

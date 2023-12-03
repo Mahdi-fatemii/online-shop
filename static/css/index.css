@@ -62,12 +62,31 @@ header > section > a {
     /*-5px -5px 10px #b3b3b3;*/
 }
 
+
 header > section > a:hover {
     padding: 20px;
     border-radius: 40px;
     background: linear-gradient(145deg, #59f8b8, #05d3ee);
     /*box-shadow:  5px 5px 10px #a100ff,*/
     /*-5px -5px 10px #a100ff;*/
+}
+
+header > section > form > input {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Grecoliv;
+    border-radius: 10px;
+    padding: 7px;
+    margin-left: 30px;
+}
+
+header > section > form > input:hover {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Grecoliv;
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 30px;
 }
 
 .products {
